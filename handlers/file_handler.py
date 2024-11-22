@@ -20,5 +20,5 @@ async def handle_file(message: Message, bot: Bot):
     print(message.from_user.id)
     await bot.download_file(file_path=file_p, destination=file_path)
     lekcii = Find(file_p.split('.')[-1])
-    await message.reply(f'В данном файле, ваши лекции следующие: '
+    await message.reply(f'Пришли изменения рассписания: '
                         f'{lekcii}')

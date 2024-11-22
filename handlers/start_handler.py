@@ -6,5 +6,5 @@ router = Router()
 
 @router.message(Command("start"))
 async def start(message: Message):
-    await message.reply("Привет! Напиши свою фамилию, чтобы в будущем получать изменения пар")
+    await message.reply("Привет! Напиши свою фамилию, чтобы в будущем получать изменения рассписания")
     # await message.answer_animation('https://media1.tenor.com/m/PFVIxY3nDS0AAAAC/devil-coy.gif')
