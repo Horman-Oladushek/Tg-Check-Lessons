@@ -1,3 +1,4 @@
+import time
 import asyncio
 import os
 from aiogram import Router, Bot, Dispatcher
@@ -21,5 +22,5 @@ async def main():
 
 
 if __name__ == "__main__":
-    print('start')
+    print('start', time.strftime("%H:%M:%S %Y-%m-%d", time.localtime()))
     asyncio.run(main())
