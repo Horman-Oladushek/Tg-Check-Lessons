@@ -8,7 +8,7 @@ class EngineController:
     def __init__(self) -> None:
         self._engine = create_engine(
             "sqlite:///database/check_lessons.db",
-            echo=True
+            echo=False
         )
         Base.metadata.create_all(self.engine)
 

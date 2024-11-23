@@ -5,6 +5,13 @@ from .models import Id_Users
 class Id_UsersRepo:
     database_controller = EngineController()
 
+    @classmethod
+    def get_all(cls) -> list[Id_Users]:
+        session = cls.database_controller.create_session()
+        users = session.query(Id_Users).all()
+        session.close()
+        return users
+
 
     @classmethod
     def create(cls, telegram_id:str, surname:str) -> None:
