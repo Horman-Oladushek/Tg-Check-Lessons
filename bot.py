@@ -4,7 +4,8 @@ import os
 from aiogram import Router, Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from dotenv import load_dotenv
-from handlers import start_handler, file_handler, botstart_handler, find_teacher_handler
+from handlers import (start_handler, file_handler, botstart_handler, check_timetable_handler)
+                      #find_teacher_handler
 
 
 
@@ -19,7 +20,8 @@ async def main():
     dp.include_routers(
         botstart_handler.router,
         start_handler.router,
-        file_handler.router
+        file_handler.router,
+        check_timetable_handler.router,
         # find_teacher_handler.router
     )
     start = await bot.send_message(

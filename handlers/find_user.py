@@ -1,7 +1,7 @@
 import xlrd, xlwt
 import os
 from database.repo import Id_UsersRepo
-def Find():
+def Find(username):
     #открываем файл
     file_path = 'file/old.xls'
     if not os.path.exists(file_path):
@@ -34,8 +34,19 @@ def Find():
     wb.save('file/old.xls')
 
     slov = {}
+    print(username)
     if flag is False:
-        return 'Расписание не изменялось'
+        for user in Id_UsersRepo.get_all():
+            if user.telegram_id == str(username):
+                for x in range(len(vals_new)):
+                    for j in range(len(vals_new[x])):
+                        if user.surname in vals_new[x][j]:
+                            if user.telegram_id not in slov:
+                                slov[user.telegram_id] = '\nГруппа: ' + vals_new[0][j] + vals_new[x][j] + '\n'
+                            else:
+                                slov[user.telegram_id] = str(slov[user.telegram_id]) + '\nГруппа: ' + vals_new[0][j] + vals_new[x][j] + '\n'
+                print(slov)
+        return f'Расписание не изменялось, ваше расписание: \n{slov.get(str(username))}'
     elif flag is True:
         for user in Id_UsersRepo.get_all():
             for x in range(len(vals_new)):
