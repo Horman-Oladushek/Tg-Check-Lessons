@@ -34,7 +34,6 @@ def Find(username):
     wb.save('file/old.xls')
 
     slov = {}
-    print(username)
     if flag is False:
         for user in Id_UsersRepo.get_all():
             if user.telegram_id == str(username):
@@ -45,7 +44,6 @@ def Find(username):
                                 slov[user.telegram_id] = '\nГруппа: ' + vals_new[0][j] + vals_new[x][j] + '\n'
                             else:
                                 slov[user.telegram_id] = str(slov[user.telegram_id]) + '\nГруппа: ' + vals_new[0][j] + vals_new[x][j] + '\n'
-                print(slov)
         return f'Расписание не изменялось, ваше расписание: \n{slov.get(str(username))}'
     elif flag is True:
         for user in Id_UsersRepo.get_all():
