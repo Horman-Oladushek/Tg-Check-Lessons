@@ -21,9 +21,11 @@ def Find():
     vals_new = [sheet_net.row_values(rownum) for rownum in range(sheet_net.nrows)]
     flag = False
     for i in range(len(vals_new)):
-        if vals_old[i] != vals_new[i]:
+        try:
+            if vals_old[i] != vals_new[i]:
+                flag = True
+        except Exception:
             flag = True
-
     wb = xlwt.Workbook()
     sheet = wb.add_sheet('Лист 1')
     for i, row in enumerate(vals_new):
