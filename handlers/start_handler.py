@@ -13,7 +13,7 @@ class StartState(StatesGroup):
 
 @router.message(Command("start"))
 async def start(message: Message, state: FSMContext):
-    await message.reply("Привет! Напиши свою фамилию, чтобы в будущем получать изменения рассписания")
+    await message.reply("Привет! Напишите свою фамилию, чтобы в будущем получать изменение рассписания")
     await state.set_state(StartState.waiting_for_message)
 
 @router.message(StartState.waiting_for_message)
@@ -22,5 +22,5 @@ async def name_of_user(message: Message, state: FSMContext):
     await state.clear()
     Id_UsersRepo.create(message.from_user.id, text)
     print(message.from_user.id, text)
-    await message.reply(f'Ваша фамилия {text} успешно сохранена для будущих уведомлений об изменении рассписания!')
+    await message.reply(f'Ваша фамилия {text} успешно сохранена для будущих уведомлений об изменении расписания!')
     await message.answer('Чтобы изменить фамилию, напишите /start')

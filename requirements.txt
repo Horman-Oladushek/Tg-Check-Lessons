@@ -2,5 +2,5 @@ aiogram
 asyncio
 python-dotenv
 xlrd
+xlwt
 sqlalchemy
-sqlalchemy-ext-asyncio
