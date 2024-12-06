@@ -59,5 +59,6 @@ def Find(username):
     end = {}
     for telegram_id, text in slov.items():
         strok += text + '\n'
+        
         end[telegram_id] = text
     return end

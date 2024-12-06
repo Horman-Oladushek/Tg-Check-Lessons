@@ -17,3 +17,7 @@ class Id_Users(Base):
     surname = sqlalchemy.Column(
         sqlalchemy.String(32)
     )
+
+    last_timetable = sqlalchemy.Column(
+        sqlalchemy.String(32)
+    )
